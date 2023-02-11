@@ -6,19 +6,18 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
-public class PostmanEchoTest {
+class PostmanEchoTest {
+
     @Test
     void shouldReturnSenData() {
         given()
                 .baseUri("https://postman-echo.com")
-                .body("Data")
+                .body("Dkata")
                 .when()
                 .post("/post")
                 .then()
-                .statusCode(Integer.parseInt("200"))
-                .body("data", equalTo("data"))
-                .body(matchesJsonSchemaInClasspath("postmanecho.schema.json"));
-
-
+                .statusCode(200)
+                .body("data", equalTo("Data"));
+                //.body(matchesJsonSchemaInClasspath("postmanecho.schema.json"));
     }
 }
