@@ -12,12 +12,12 @@ class PostmanEchoTest {
     void shouldReturnSenData() {
         given()
                 .baseUri("https://postman-echo.com")
-                .body("Dkata")
+                .body("Data2")
                 .when()
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("data", equalTo("Data"));
+                .body("data", equalTo("Data2"));
                 //.body(matchesJsonSchemaInClasspath("postmanecho.schema.json"));
     }
 }
